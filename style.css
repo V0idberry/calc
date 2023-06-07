@@ -15,11 +15,26 @@ body {
 }
 
 .screen {
-    min-height: 140px;
+    height: 80px;
     background-color: #faf9f9;
     border: 2px solid black;
     border-radius: 5px;
     margin-bottom: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.result {
+    width: 100%;
+    font-size: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .btn-container {
@@ -55,6 +70,19 @@ body {
 }
 
 .btn-op:hover {
+    background-color: #ffebdd
+}
+
+.btn-func {
+    padding: 20px;
+    background-color: #ffd6ba;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-func:hover {
     background-color: #ffebdd
 }
 
