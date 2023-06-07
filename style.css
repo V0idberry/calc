@@ -32,7 +32,7 @@ body {
     grid-column: span 2;
 }
 
-.btn {
+.btn-num {
     padding: 20px;
     background-color: #bee3db;
     border: 2px solid black;
@@ -41,15 +41,20 @@ body {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn-num:hover {
     background-color: #e5f4f1;
 }
 
-.btn-color {
+.btn-op {
+    padding: 20px;
     background-color: #ffd6ba;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-.btn-color:hover {
+.btn-op:hover {
     background-color: #ffebdd
 }
 
