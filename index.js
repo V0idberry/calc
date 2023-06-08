@@ -2,7 +2,6 @@ const btnNum = document.querySelectorAll(".btn-num");
 const btnOperator = document.querySelectorAll(".btn-op");
 const btnFunction = document.querySelectorAll(".btn-func")
 const displayMain = document.querySelector(".result");
-const commaButton = document.querySelector(".dot");
 
 let currentA = '';
 let currentB = '';
@@ -49,22 +48,22 @@ btnFunction.forEach(key => {
 // Calculator logic
 
 const add = function(a, b) {
-    return a + b;
+    return Math.round((a + b) * 100) / 100;
 };
 
 const sub = function(a, b) {
-    return a - b;
+    return Math.round((a - b) * 100) / 100;
 };
 
 const mul = function(a, b) {
-    return a * b;
+    return Math.round((a * b) * 100) / 100;
 };
 
 const div = function(a, b) {
     if(currentB == 0) {
         displayMain.innerText = "Floomp!"
     } else {
-        return a / b;
+        return Math.round((a / b) * 100) / 100;
     }
 };
 
@@ -74,13 +73,13 @@ const operate = function(operator, currentA, currentB) {
 
     switch (operator) {
         case '+':
-            return add(a, b).toFixed(2);
+            return add(a, b);
         case '-':
-           return sub(a, b).toFixed(2);
+            return sub(a, b);
         case '*':
-            return mul(a, b).toFixed(2);
+            return mul(a, b);
         case '/':
-            return div(a,b).toFixed(2);
+            return div(a,b);
     }
 };
 
@@ -113,6 +112,7 @@ const equals = function () {
         currentB = '';
         operator = '';
         displayMain.innerText = currentA;
+        currentA = '';
     } else {
         return;
     }
