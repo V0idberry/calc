@@ -2,6 +2,7 @@ const btnNum = document.querySelectorAll(".btn-num");
 const btnOperator = document.querySelectorAll(".btn-op");
 const btnFunction = document.querySelectorAll(".btn-func")
 const displayMain = document.querySelector(".result");
+const displayTemp = document.querySelector(".temp-result");
 
 let currentA = '';
 let currentB = '';
@@ -10,11 +11,13 @@ let operator = '';
 btnNum.forEach(key => {
     key.addEventListener('click', function(e) {
         if(operator == false) { // first number input
+            displayTemp.innerText = '';
             currentA = currentA.concat(e.target.innerText);
             displayMain.innerText = currentA;
         } else { // second number input
             currentB = currentB.concat(e.target.innerText);
-            displayMain.innerText = `${currentA} ${operator} ${currentB}`;
+            displayTemp.innerText = `${currentA} ${operator} `;
+            displayMain.innerText = `${currentB}`;
         }
     })
 });
@@ -22,11 +25,13 @@ btnNum.forEach(key => {
 btnOperator.forEach(key => {
     key.addEventListener('click', function(e) {
         if(currentA && currentB) { //subsequent operator inputs
+            displayTemp.innerText = `${currentA} ${operator} ${currentB} =`;
             currentA = operate(operator, currentA, currentB).toString();
             operator = e.target.innerText;
             currentB = '';
             displayMain.innerText = `${currentA} ${operator}`;
         } else if(currentA) { // first operator input
+            displayTemp.innerText = '';
             operator = e.target.innerText;
             displayMain.innerText = `${currentA} ${operator}`;
         }
@@ -108,6 +113,7 @@ const backspace = function() {
 
 const equals = function () {
     if(currentA && operator && currentB) {
+        displayTemp.innerText = `${currentA} ${operator} ${currentB} =`;
         currentA = operate(operator, currentA, currentB).toString();
         currentB = '';
         operator = '';

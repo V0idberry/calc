@@ -23,14 +23,25 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+}
+
+.temp-result {
+    width: 100%;
+    font-size: 20px;
+    display:flex;
+    border-bottom: 1px solid black;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;    
 }
 
 .result {
     width: 100%;
     font-size: 40px;
     display: flex;
+    flex: 2;
     justify-content: flex-end;
     align-items: flex-end;
     overflow: hidden;
