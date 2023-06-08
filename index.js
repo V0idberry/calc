@@ -3,10 +3,13 @@ const btnOperator = document.querySelectorAll(".btn-op");
 const btnFunction = document.querySelectorAll(".btn-func")
 const displayMain = document.querySelector(".result");
 const displayTemp = document.querySelector(".temp-result");
+const comma = document.getElementById("comma");
 
 let currentA = '';
 let currentB = '';
 let operator = '';
+
+// Event functions
 
 btnNum.forEach(key => {
     key.addEventListener('click', function(e) {
@@ -48,6 +51,16 @@ btnFunction.forEach(key => {
             equals();
         }
     })
+});
+
+// Prevent multiple commas from being added
+
+displayMain.addEventListener('DOMSubtreeModified', function() {
+    if (displayMain.innerText.includes('.')) {
+        comma.disabled = true;
+    } else {
+        comma.disabled = false;
+    }
 });
 
 // Calculator logic
